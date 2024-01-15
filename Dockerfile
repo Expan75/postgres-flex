@@ -42,6 +42,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN curl https://haproxy.debian.net/bernat.debian.org.gpg \
     | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
 
+# PGVector
+RUN apt-get update && apt-get install --no-install-recommends -y install postgresql-15-pgvector
+
 RUN echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
     http://haproxy.debian.net bookworm-backports-${HAPROXY_VERSION} main \
     > /etc/apt/sources.list.d/haproxy.list
